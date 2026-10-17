@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khảo sát ý kiến khách hàng</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 24px 30px;
+        }
+
+        .form-header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        form {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label.required::after {
+            content: " *";
+            color: #d9534f;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .radio-item input, .checkbox-item input {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .form-footer {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        button[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004085;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+            .form-header {
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-header">
+            <h1>Khảo sát ý kiến khách hàng</h1>
+            <p>Hãy cho chúng tôi biết trải nghiệm của bạn để giúp chúng tôi cải thiện dịch vụ tốt hơn.</p>
+        </div>
+
+        <form action="#" method="POST">
+            <!-- Họ và tên -->
+            <div class="form-group">
+                <label for="fullname" class="required">Họ và tên</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên của bạn" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email" class="required">Địa chỉ Email</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            </div>
+
+            <!-- Đánh giá mức độ hài lòng (Radio) -->
+            <div class="form-group">
+                <label class="required">Bạn đánh giá như thế nào về mức độ hài lòng chung?</label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="satisfaction" value="very_satisfied" required> Rất hài lòng</label>
+                    <label class="radio-item"><input type="radio" name="satisfaction" value="satisfied"> Hài lòng</label>
+                    <label class="radio-item"><input type="radio" name="satisfaction" value="neutral"> Bình thường</label>
+                    <label class="radio-item"><input type="radio" name="satisfaction" value="dissatisfied"> Không hài lòng</label>
+                </div>
+            </div>
+
+            <!-- Tính năng sử dụng thường xuyên (Checkbox) -->
+            <div class="form-group">
+                <label>Bạn thường sử dụng tính năng/dịch vụ nào nhất? (Chọn tất cả phù hợp)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="support"> Hỗ trợ khách hàng</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="speed"> Tốc độ xử lý / Hiệu năng</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="interface"> Giao diện người dùng</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="price"> Giá cả / Chi phí</label>
+                </div>
+            </div>
+
+            <!-- Nguồn biết đến -->
+            <div class="form-group">
+                <label for="source">Bạn biết đến chúng tôi qua đâu?</label>
+                <select id="source" name="source">
+                    <option value="">-- Vui lòng chọn --</option>
+                    <option value="facebook">Facebook / Mạng xã hội</option>
+                    <option value="google">Tìm kiếm Google</option>
+                    <option value="friend">Bạn bè giới thiệu</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+
+            <!-- Ý kiến đóng góp -->
+            <div class="form-group">
+                <label for="comments">Ý kiến đóng góp hoặc đề xuất thêm</label>
+                <textarea id="comments" name="comments" placeholder="Nhập ý kiến của bạn tại đây..."></textarea>
+            </div>
+
+            <!-- Nút gửi -->
+            <div class="form-footer">
+                <button type="submit">Gửi khảo sát</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
